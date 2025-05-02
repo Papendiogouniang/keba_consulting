@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { Form, Button, Col, Row, Container } from 'react-bootstrap';
 
 function Contact() {
+  // État pour les champs du formulaire (nom, email, message)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  // Gestion des changements dans les champs du formulaire
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });  // Mise à jour de l'état du formulaire
   };
 
+  // Gestion de l'envoi du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Message envoyé !');
+    alert('Message envoyé !');  // Affiche un message d'alerte une fois le formulaire envoyé
   };
 
   return (
@@ -22,6 +25,7 @@ function Contact() {
           {/* Formulaire de Contact */}
           <Col md={6} className="mb-4">
             <Form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-white">
+              {/* Champ "Nom" */}
               <Form.Group controlId="name" className="mb-3">
                 <Form.Label>Nom</Form.Label>
                 <Form.Control
@@ -34,6 +38,7 @@ function Contact() {
                 />
               </Form.Group>
 
+              {/* Champ "Email" */}
               <Form.Group controlId="email" className="mb-3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -46,6 +51,7 @@ function Contact() {
                 />
               </Form.Group>
 
+              {/* Champ "Message" */}
               <Form.Group controlId="message" className="mb-3">
                 <Form.Label>Message</Form.Label>
                 <Form.Control
@@ -59,16 +65,18 @@ function Contact() {
                 />
               </Form.Group>
 
+              {/* Bouton d'envoi */}
               <Button variant="primary" type="submit" className="w-100 btn-custom">
                 Envoyer
               </Button>
             </Form>
           </Col>
 
-          {/* Section Map */}
+          {/* Section Carte avec emplacement */}
           <Col md={6}>
             <div className="map-container">
               <h5 className="text-center mb-3">Notre emplacement</h5>
+              {/* Intégration d'une carte Google Maps avec un iframe */}
               <iframe
                 title="Kéba Consulting Location"
                 src="https://www.google.com/maps/embed?..."
@@ -78,6 +86,7 @@ function Contact() {
                 allowFullScreen=""
                 loading="lazy"
               ></iframe>
+              {/* Informations supplémentaires sous la carte */}
               <div className="mt-3 text-center">
                 <p><strong>📞 764365026</strong></p>
                 <p>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import klImage from '../assets/kl.jpg';
-import lmImage from '../assets/lm.jpg';
+import klImage from '../assets/kl.jpg';  // Remplacer par vos images
+import lmImage from '../assets/lm.jpg';  // Remplacer par vos images
 
 function Services() {
+  // Liste des services proposés
   const services = [
     {
       title: 'Conseil',
@@ -34,16 +35,18 @@ function Services() {
 
   return (
     <section className="services-section py-5 bg-light">
+      {/* Container principal */}
       <Container>
         <h2 className="text-center text-primary mb-5">Nos Services</h2>
         <Row>
+          {/* Itération sur les services */}
           {services.map((service, index) => (
             <Col key={index} sm={12} md={6} lg={4} className="mb-4">
               <Card
                 className="h-100 border-0 shadow-lg rounded service-card"
                 style={{ transition: 'transform 0.3s ease-in-out' }} // Animation d'effet hover
               >
-                {/* Image avec un effet de superposition */}
+                {/* Image du service avec un overlay sombre */}
                 <div className="service-img-container" style={{ position: 'relative' }}>
                   <Card.Img variant="top" src={service.img} className="service-img" />
                   <div
@@ -60,8 +63,11 @@ function Services() {
                   ></div>
                 </div>
                 <Card.Body>
+                  {/* Titre du service */}
                   <Card.Title className="text-center">{service.title}</Card.Title>
+                  {/* Description du service */}
                   <Card.Text>{service.text}</Card.Text>
+                  {/* Bouton pour plus d'informations */}
                   <Button variant="outline-primary" className="d-block mx-auto">
                     En savoir plus
                   </Button>

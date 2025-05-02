@@ -1,26 +1,33 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import projectImage1 from '../assets/lm.jpg';  // Remplacez par vos images
-import projectImage2 from '../assets/kl.jpg';  // Remplacez par vos images
-import projectImage3 from '../assets/lm.jpg';  // Remplacez par vos images
+import projectImage1 from '../assets/lm.jpg';  // Remplacer par vos images
+import projectImage2 from '../assets/kl.jpg';  // Remplacer par vos images
+import projectImage3 from '../assets/lm.jpg';  // Remplacer par vos images
 
 function Projects() {
   return (
     <section className="projects-section py-5 bg-light">
+      {/* Container pour la section des projets */}
       <Container>
+        {/* Titre de la section */}
         <h2 className="text-center text-primary mb-5">Nos Projets</h2>
+
         <Row>
           {/* Projet 1 */}
           <Col sm={12} md={4} className="mb-4">
             <Card className="shadow hover-effect">
+              {/* Conteneur pour l'image du projet */}
               <div className="project-img-container">
                 <Card.Img variant="top" src={projectImage1} className="project-img" />
               </div>
               <Card.Body>
+                {/* Titre du projet */}
                 <Card.Title>Développement d'une plateforme RH</Card.Title>
+                {/* Description du projet */}
                 <Card.Text>
                   Nous avons accompagné une grande entreprise dans la création d'une plateforme numérique pour la gestion des ressources humaines, optimisant ainsi leur productivité et leur gestion des talents.
                 </Card.Text>
+                {/* Bouton pour voir le projet */}
                 <Button variant="primary" className="btn-custom">Voir le projet</Button>
               </Card.Body>
             </Card>
