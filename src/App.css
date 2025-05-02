@@ -1,38 +1,432 @@
-.App {
+/* Couleurs de thème */
+.text-orange {
+  color: #ff7043; /* Orange clair */
+}
+
+.text-primary {
+  color: #007bff; /* Bleu */
+}
+
+.text-white {
+  color: #ffffff; /* Blanc */
+}
+
+.bg-orange {
+  background-color: #ff7043; /* Orange clair */
+}
+
+.bg-primary {
+  background-color: #007bff; /* Bleu */
+}
+
+.bg-light {
+  background-color: #f8f9fa; /* Blanc cassé pour le fond */
+}
+
+/* Corps de la page */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Fond clair */
+  color: #333; /* Texte principal */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+main > div {
+  padding: 20px;
+}
+
+/* Personnalisation du carrousel */
+.carousel-item img {
+  height: 500px;
+  object-fit: cover; /* Pour que les images remplissent bien le carrousel sans être déformées */
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Fond sombre pour la légende */
+  padding: 10px;
+}
+
+/* Page Accueil */
+.accueil-container {
+  padding: 20px;
+}
+
+.services-section, .team-section, .contact-section {
+  margin-bottom: 40px;
+}
+
+h2.text-center {
+  color: #007bff;
+  font-size: 2.5rem;
+}
+
+p.text-center {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Services */
+.service-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  color: #ff7043; /* Orange clair */
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Équipe */
+.team-container {
+  padding: 40px 20px;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+.contact-container {
+  padding: 20px;
+}
+
+.contact-info {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contact-info p {
+  font-size: 1.1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Cards générales */
+.card {
+  border-radius: 10px;  /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Ombre légère */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.card img {
+  border-radius: 10px 10px 0 0;  /* Coins arrondis pour les images */
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body .btn {
+  background-color: #ff7043; /* Orange clair pour les boutons */
   color: white;
+  border: none;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+.card-body .btn:hover {
+  background-color: #ff5722; /* Couleur plus foncée au survol */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Spécifique pour la section services */
+/* Effet hover pour l'animation des cartes */
+.service-card:hover {
+  transform: translateY(-10px); /* Déplace légèrement la carte vers le haut */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* Ombre accentuée pour l'effet */
+}
+
+.service-img-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.service-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.05); /* Légère augmentation de la taille de l'image au survol */
+}
+
+
+/* Section Équipe */
+.team-container .team-card {
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.team-card img {
+  border-radius: 50%;  /* Faire les images des membres rondes */
+  margin-bottom: 10px;
+}
+
+.team-card .card-body {
+  padding: 20px;
+}
+
+.team-card h5 {
+  font-weight: 700;
+}
+
+/* Contact page styling */
+/* Style personnalisé pour le formulaire */
+.contact-section {
+  background-color: #f8f9fa;
+}
+
+.form-control-custom {
+  border-radius: 25px;
+  box-shadow: none;
+  border: 2px solid #ccc;
+  transition: border 0.3s ease-in-out;
+}
+
+.form-control-custom:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+.btn-custom {
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border-radius: 25px;
+  background-color: #ff6600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e65c00;
+}
+
+/* Style de l'iframe de Google Maps */
+.map-container iframe {
+  border-radius: 10px;
+}
+
+/* Améliorations du layout */
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #004d99;
+}
+
+.contact-section .map-container {
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact-section h2 {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .map-container iframe {
+    height: 250px;
   }
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+  background-color: #007bff; /* Bleu profond */
+  padding: 1rem 2rem; /* Espacement suffisant pour aérer */
+  transition: background-color 0.3s ease;
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.1); /* Effet d'agrandissement du logo au survol */
+}
+
+.navbar-toggler-icon {
+  background-color: #fff !important; /* Icône du bouton hamburger blanc */
+}
+
+/* Liens de la navbar */
+.nav-link {
+  color: #fff !important;
+  font-size: 1.1rem;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Effet au survol des liens */
+.nav-link:hover {
+  color: #f57c00 !important; /* Couleur orange au survol */
+  background-color: rgba(245, 124, 0, 0.2); /* Fond léger orange */
+  border-radius: 5px;
+}
+
+/* Réseaux sociaux */
+.social-icons .social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+  transform: scale(1.2); /* Icônes agrandies au survol */
+  color: #f57c00; /* Couleur orange au survol */
+}
+
+/* Navbar responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+
+  .navbar-collapse {
+    background-color: #007bff; /* Couleur du fond au menu mobile */
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .nav-link {
+    padding: 1rem;
+  }
+}
+
+
+/* Footer */
+.footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+} 
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer p {
+  margin: 0;
+}
+.footer .social-icons {
+  margin-top: 10px;
+}
+.footer .social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 1.5rem;
+}
+.footer .social-icons a:hover {
+  color: #ff7043; /* Orange clair au survol */
+}
+/* Media Queries */   
+/* Effet hover pour les cartes de projets */
+.hover-effect:hover {
+  transform: translateY(-10px); /* Déplace légèrement la carte vers le haut */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* Ombre accentuée */
+  transition: all 0.3s ease-in-out; /* Transition fluide */
+}
+
+/* Conteneur d'image avec effet */
+.project-img-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-img {
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: 200px; /* Vous pouvez ajuster la hauteur de l'image selon vos besoins */
+  object-fit: cover; /* Pour garantir que l'image couvre toute la zone du conteneur */
+}
+
+/* Zoom sur l'image au survol */
+.hover-effect:hover .project-img {
+  transform: scale(1.05); /* Augmente légèrement la taille de l'image */
+}
+
+/* Bouton personnalisé */
+.btn-custom {
+  font-size: 1rem;
+  padding: 12px 30px;
+  border-radius: 25px;
+  background-color: #ff6600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e65c00; /* Changement de couleur au survol */
+}
+/* Effet hover pour les cartes de projets */
+.hover-effect:hover {
+  transform: translateY(-10px); /* Déplace légèrement la carte vers le haut */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* Ombre accentuée */
+  transition: all 0.3s ease-in-out; /* Transition fluide */
+}
+
+/* Conteneur d'image avec effet */
+.project-img-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-img {
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: 200px; /* Vous pouvez ajuster la hauteur de l'image selon vos besoins */
+  object-fit: cover; /* Pour garantir que l'image couvre toute la zone du conteneur */
+}
+
+/* Zoom sur l'image au survol */
+.hover-effect:hover .project-img {
+  transform: scale(1.05); /* Augmente légèrement la taille de l'image */
+}
+
+/* Bouton personnalisé */
+.btn-custom {
+  font-size: 1rem;
+  padding: 12px 30px;
+  border-radius: 25px;
+  background-color: #ff6600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e65c00; /* Changement de couleur au survol */
 }
