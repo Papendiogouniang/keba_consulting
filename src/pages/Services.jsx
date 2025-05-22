@@ -1,74 +1,93 @@
 import React from 'react';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import klImage from '../assets/kl.jpg';  // Remplacer par vos images
-import lmImage from '../assets/lm.jpg';  // Remplacer par vos images
+import { FaLightbulb, FaGraduationCap, FaUsers, FaHandshakeSimple, FaBuilding } from 'react-icons/fa6';
 
 function Services() {
-  // Liste des services proposés
   const services = [
     {
-      title: 'Conseil',
-      text: 'Accompagnement stratégique pour atteindre les objectifs de votre organisation.',
-      img: klImage,
+      title: 'Conseil Stratégique',
+      text: 'Accompagnement personnalisé pour optimiser votre stratégie organisationnelle et atteindre vos objectifs.',
+      icon: <FaLightbulb size={40} className="mb-4 text-primary" />,
+      gradient: 'linear-gradient(135deg, #3498db, #2980b9)',
     },
     {
-      title: 'Formation',
-      text: 'Programmes de formation adaptés à vos besoins professionnels.',
-      img: lmImage,
+      title: 'Formation Professionnelle',
+      text: 'Programmes de formation sur mesure pour développer les compétences de vos équipes.',
+      icon: <FaGraduationCap size={40} className="mb-4 text-primary" />,
+      gradient: 'linear-gradient(135deg, #e74c3c, #c0392b)',
     },
     {
-      title: 'Coaching',
-      text: 'Coaching personnalisé pour révéler votre potentiel.',
-      img: klImage,
+      title: 'Coaching Personnalisé',
+      text: 'Accompagnement individuel pour révéler votre potentiel et atteindre l\'excellence.',
+      icon: <FaUsers size={40} className="mb-4 text-primary" />,
+      gradient: 'linear-gradient(135deg, #2ecc71, #27ae60)',
     },
     {
       title: 'Team Building',
-      text: 'Activités pour renforcer l’esprit d’équipe et la collaboration.',
-      img: lmImage,
+      text: 'Activités innovantes pour renforcer la cohésion d\'équipe et la collaboration.',
+      icon: <FaHandshakeSimple size={40} className="mb-4 text-primary" />,
+      gradient: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
     },
     {
       title: 'Gestion Immobilière',
-      text: 'Gestion et valorisation de vos biens pour une meilleure rentabilité.',
-      img: klImage,
+      text: 'Solutions complètes pour optimiser la gestion et la valorisation de votre patrimoine immobilier.',
+      icon: <FaBuilding size={40} className="mb-4 text-primary" />,
+      gradient: 'linear-gradient(135deg, #f1c40f, #f39c12)',
     },
   ];
 
   return (
-    <section className="services-section py-5 bg-light">
-      {/* Container principal */}
+    <section className="services-section py-5" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
       <Container>
-        <h2 className="text-center text-primary mb-5">Nos Services</h2>
+        <div className="text-center mb-5">
+          <h2 
+            className="display-4 mb-3"
+            style={{
+              background: 'linear-gradient(90deg, #007bff, #00bcd4)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontWeight: '800',
+            }}
+          >
+            Nos Services
+          </h2>
+          <p className="lead text-muted">Des solutions adaptées à vos besoins</p>
+        </div>
+
         <Row>
-          {/* Itération sur les services */}
           {services.map((service, index) => (
-            <Col key={index} sm={12} md={6} lg={4} className="mb-4">
+            <Col key={index} lg={4} md={6} className="mb-4">
               <Card
-                className="h-100 border-0 shadow-lg rounded service-card"
-                style={{ transition: 'transform 0.3s ease-in-out' }} // Animation d'effet hover
+                className="h-100 border-0 service-card"
+                style={{
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                }}
+                onMouseOver={e => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                }}
               >
-                {/* Image du service avec un overlay sombre */}
-                <div className="service-img-container" style={{ position: 'relative' }}>
-                  <Card.Img variant="top" src={service.img} className="service-img" />
-                  <div
-                    className="img-overlay"
+                <div style={{ background: service.gradient, height: '8px' }} />
+                <Card.Body className="text-center p-4">
+                  {service.icon}
+                  <Card.Title className="h4 mb-3">{service.title}</Card.Title>
+                  <Card.Text className="text-muted mb-4">{service.text}</Card.Text>
+                  <Button
+                    variant="outline-primary"
+                    className="rounded-pill px-4"
                     style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundColor: 'rgba(0, 0, 0, 0.3)', // Superposition sombre
-                      borderRadius: '10px',
+                      borderWidth: '2px',
+                      fontWeight: '600',
+                      transition: 'all 0.3s ease',
                     }}
-                  ></div>
-                </div>
-                <Card.Body>
-                  {/* Titre du service */}
-                  <Card.Title className="text-center">{service.title}</Card.Title>
-                  {/* Description du service */}
-                  <Card.Text>{service.text}</Card.Text>
-                  {/* Bouton pour plus d'informations */}
-                  <Button variant="outline-primary" className="d-block mx-auto">
+                  >
                     En savoir plus
                   </Button>
                 </Card.Body>
