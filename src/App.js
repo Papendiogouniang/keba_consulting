@@ -14,12 +14,14 @@ import Team from './pages/Team';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Partners from './pages/Partners';
+import ELearning from './pages/ELearning';
 
 function App() {
   return (
     <div className="app-container">
       {/* Navbar affichée sur toutes les pages */}
       <Navbar />
+      
       {/* Header affiché sur toutes les pages */}
       <Header />
 
@@ -32,6 +34,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/team" element={<Team />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/e-learning" element={<ELearning />} />
           <Route path="/contact" element={<Contact />} />
           {/* Route pour la page Partenaires */}
           <Route path="/partners" element={<Partners />} />

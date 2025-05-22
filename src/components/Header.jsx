@@ -24,6 +24,7 @@ function Header() {
         location.pathname !== '/services' && 
         location.pathname !== '/team' && 
         location.pathname !== '/partners' && 
+        location.pathname !== '/e-learning' &&
         location.pathname !== '/contact' && (
           <Carousel interval={1000} pause={false} controls={false} indicators={false}>
             {/* Parcours du tableau d'images pour créer chaque élément du carrousel */}

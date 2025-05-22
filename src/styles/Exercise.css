@@ -1,0 +1,10 @@
+.exercise-container {
+    background: #fdfdfd;
+    border-left: 6px solid #ff6600;
+  }
+  
+  textarea.form-control {
+    resize: none;
+    border-radius: 8px;
+  }
+  
