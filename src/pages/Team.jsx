@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, Row, Col, Container } from 'react-bootstrap';
 import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 function Team() {
@@ -40,87 +39,55 @@ function Team() {
   ];
 
   return (
-    <section className="team-section py-5" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-      <Container>
-        <div className="text-center mb-5">
-          <h2 
-            className="display-4 mb-3"
-            style={{
-              background: 'linear-gradient(90deg, #007bff, #00bcd4)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontWeight: '800',
-            }}
-          >
-            Notre Équipe
-          </h2>
-          <p className="lead text-muted">Des experts passionnés à votre service</p>
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Notre Équipe</h2>
+          <p className="section-subtitle">Des experts passionnés à votre service</p>
         </div>
 
-        <Row>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, idx) => (
-            <Col key={idx} lg={4} className="mb-4">
-              <Card
-                className="border-0 team-card h-100"
-                style={{
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }}
-                onMouseOver={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px)';
-                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                }}
-              >
-                <div className="position-relative">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    style={{
-                      width: '100%',
-                      height: '300px',
-                      objectFit: 'cover',
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-                      padding: '20px',
-                    }}
-                  >
-                    <h3 className="text-white mb-1">{member.name}</h3>
-                    <p className="text-white-50 mb-0">{member.role}</p>
-                  </div>
+            <div key={idx} className="card">
+              <div className="relative">
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-[300px] object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <h3 className="text-white text-xl font-semibold mb-1">{member.name}</h3>
+                  <p className="text-gray-200 text-sm">{member.role}</p>
                 </div>
-                
-                <Card.Body className="text-center p-4">
-                  <p className="text-muted mb-4">{member.bio}</p>
-                  <div className="d-flex justify-content-center gap-3">
-                    <a href={member.social.linkedin} className="text-primary" style={{ fontSize: '1.5rem' }}>
-                      <FaLinkedin />
-                    </a>
-                    <a href={member.social.twitter} className="text-primary" style={{ fontSize: '1.5rem' }}>
-                      <FaTwitter />
-                    </a>
-                    <a href={`mailto:${member.social.email}`} className="text-primary" style={{ fontSize: '1.5rem' }}>
-                      <FaEnvelope />
-                    </a>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
+              </div>
+              
+              <div className="p-6 text-center">
+                <p className="text-gray-600 mb-6">{member.bio}</p>
+                <div className="flex justify-center gap-4">
+                  <a 
+                    href={member.social.linkedin}
+                    className="text-primary-600 hover:text-primary-700 transition-colors duration-200 text-2xl"
+                  >
+                    <FaLinkedin />
+                  </a>
+                  <a 
+                    href={member.social.twitter}
+                    className="text-primary-600 hover:text-primary-700 transition-colors duration-200 text-2xl"
+                  >
+                    <FaTwitter />
+                  </a>
+                  <a 
+                    href={`mailto:${member.social.email}`}
+                    className="text-primary-600 hover:text-primary-700 transition-colors duration-200 text-2xl"
+                  >
+                    <FaEnvelope />
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 }
